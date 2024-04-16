@@ -27,7 +27,7 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 
 * `import "@openzeppelin/contracts/access/Ownable.sol";`: This import ensures that the `ReverseRegistrar.sol` is able to inherit from the `ownable` contract and be able to utilize its access control functionalities, also ensuring that the contract adheres to best practices in smart contract development.
 
-* `import "../root/Controllable.sol";`:
+* `import "../root/Controllable.sol";`: This import ensures that the contract can inherit the `Controllable` contract and make use of its functionalities to implement advanced control and management features, allowing the contract respond dynamically to changing requirements or conditions.
 
 
 
