@@ -30,10 +30,12 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 * `import "../root/Controllable.sol";`: This import ensures that the contract can inherit the `Controllable` contract and make use of its functionalities to implement advanced control and management features, allowing the contract respond dynamically to changing requirements or conditions.
 
 
-
 #### Examples of how the imports are used
 
 ### - Modifiers
+The modifiers that are being used by the `ReverseRegistrar.sol` functions are:
+
+* authorized
 
 ### - Functions
 
