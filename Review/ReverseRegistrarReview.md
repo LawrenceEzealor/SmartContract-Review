@@ -23,7 +23,7 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 
 * `import "../registry/ENS.sol"`: This imports the `ENS.sol` as it allows the contract to access and use functionalities from the Ethereum Name Service(ENS). it contains essential functionalities related to the ENS such as Registering and managing Ethereum domain names, resolving ENS names to Ethereum addresses, and managing reverse ENS records.
 
-* `import "./IReverseRegistrar.sol";`:
+* `import "./IReverseRegistrar.sol";`: THis import ensures that the `ReverseRegistrar.sol` is able to access the interface definition for the `ReverseRegistrar` contract, so as to allow it interract seamlessly with different implementations, providing flexibility and interoperability in managing reverse ENS recordsd.
 
 * `import "@openzeppelin/contracts/access/Ownable.sol";`:
 
