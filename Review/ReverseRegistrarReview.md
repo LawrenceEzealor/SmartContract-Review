@@ -21,7 +21,7 @@ Immutable state variables, including the ENS registry address, establish a found
 Importing files into contracts in solidity enables the utilization of external libraries, interfaces, or other contracts within one's contract as this promotes code security and efficiency, reusability, modularity and collaboration.
 The `ReverseRegistrar.sol` has some import which are listed below as well as their different functionalities to the `Reverse Registrar` contract: 
 
-* `import "../registry/ENS.sol"`:
+* `import "../registry/ENS.sol"`: This imports the `ENS.sol` as it allows the contract to access and use functionalities from the Ethereum Name Service(ENS). it contains essential functionalities related to the ENS such as Registering and managing Ethereum domain names, resolving ENS names to Ethereum addresses, and managing reverse ENS records.
 
 * `import "./IReverseRegistrar.sol";`:
 
