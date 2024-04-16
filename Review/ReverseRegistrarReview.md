@@ -19,6 +19,7 @@ Immutable state variables, including the ENS registry address, establish a found
 ### CONTRACT FUNCTONALITIES
 ### - Importations 
 Importing files into contracts in solidity enables the utilization of external libraries, interfaces, or other contracts within one's contract as this promotes code security and efficiency, reusability, modularity and collaboration.
+The `ReverseRegistrar.sol` has some import which are listed below as well as their different functionalities to the `Reverse Registrar` contract: 
 
 #### Examples of how the imports are used
 
