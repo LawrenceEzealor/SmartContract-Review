@@ -4,13 +4,18 @@
 
 
 ### Key Insights Summarized in Bullet Points
-* Imports 4 files to access libraries, interfaces and an ownable contract
+* Imports 4 files to access libraries, an interface and an ownable contract
 * Inherits from `IReverseRegistrar.sol` to acess state variables and utilise modifiers restriciting actions.
 * Absence of structs, 12 unctions, 2 events
 * Emmision of `ReverseClaimed` event when ownership of a reverse ENS record is claimied for a specific for a specific address and emmision of `DefaultResolvedCharged` when the default resolver for the contract is changed.
 
 ### COMPREHENSIVE REVIEW
+
+
 ### CONTRACT STRUCTURE
+The `Reverse Registrar` contract embodies the Ethereum Name Service(ENS) system, a fundamental component facilitatting user interaction within the Ethereum ecosystem. It streamlines the association of Human readable names with Ethereum addresses, enhancing usability and accessibility in decentralized applications(Dapps) and services. It begins with specifying the required solidity compiler version and imports essential libraries and external files and also leveraging on open zeppelin library for access control functionalities. It focuses on managing ENS related tasks users can claim ownership of reverse ENS records, set default resolvers, and assign human-readable names to Ethereum addresses. The modifiers enforces access control to ensure that only authorized entities execute priviledged functions, while events provide a means to communicate critical updates externally.
+Immutable state variables, including the ENS registry address, establish a foundational framework for ENS interaction. These variables ensures the contract's operational integrity, serving as refrence points for critical operations, Complementing the primary functions are utility methods designed to streamline operations and enhance efficiency. These additional functions, such as computing hashes and verifying ownership of contracts, augument the contract's versatility and utility in real-world scenarios.
+
 ### CONTRACT FUNCTONALITIES
 
 ### - Importations 
