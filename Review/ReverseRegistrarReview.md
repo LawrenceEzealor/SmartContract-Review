@@ -4,13 +4,15 @@
 
 
 ### Key Insights Summarized in Bullet Points
-*
-*
-*
+* Imports 4 files to access libraries, interfaces and an ownable contract
+* Inherits from `IReverseRegistrar.sol` to acess state variables and utilise modifiers restriciting actions.
+* Absence of structs, 12 unctions, 2 events
+* Emmision of `ReverseClaimed` event when ownership of a reverse ENS record is claimied for a specific for a specific address and emmision of `DefaultResolvedCharged` when the default resolver for the contract is changed.
+
 ### COMPREHENSIVE REVIEW
 ### CONTRACT STRUCTURE
 ### CONTRACT FUNCTONALITIES
 
-### - Importations
+### - Importations 
 #### Examples of how the imports are used
 ### - Modifiers
