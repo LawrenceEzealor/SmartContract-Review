@@ -34,3 +34,5 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 #### Examples of how the imports are used
 
 ### - Modifiers
+
+# CONCLUSION
