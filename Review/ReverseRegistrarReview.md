@@ -17,7 +17,9 @@ The `Reverse Registrar` contract embodies the Ethereum Name Service(ENS) system,
 Immutable state variables, including the ENS registry address, establish a foundational framework for ENS interaction. These variables ensures the contract's operational integrity, serving as refrence points for critical operations, Complementing the primary functions are utility methods designed to streamline operations and enhance efficiency. These additional functions, such as computing hashes and verifying ownership of contracts, augument the contract's versatility and utility in real-world scenarios.
 
 ### CONTRACT FUNCTONALITIES
-
 ### - Importations 
+Importing files into contracts in solidity enables the utilization of external libraries, interfaces, or other contracts within one's contract as this promotes code security and efficiency, reusability, modularity and collaboration
+
 #### Examples of how the imports are used
+
 ### - Modifiers
