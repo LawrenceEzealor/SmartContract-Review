@@ -57,6 +57,13 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 
 - `abstract contract NameResolver`: is to establish a contract blueprint that outlines the required functionality for setting names for ENS nodes. Any contract that wishes to fulfill this role must inherit from `NameResolver` and provide an implementation for the `setName` function.
 
+```
+    abstract contract NameResolver {
+    function setName(bytes32 node, string memory name) public virtual;
+}
+
+```
+
 - `Constructor`: the constructor initializes the contract's state variables and ensures that the contract is properly configured to interact with the ENS registry for reverse resolution of addresses.
 
 - `function setDefaultResolver`: the setDefaultResolver function allows the contract owner to specify the default resolver for handling reverse ENS records, ensuring proper resolution of addresses.
