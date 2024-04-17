@@ -58,4 +58,12 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 
 * `function ownsContract`: the `ownsContract` function provides a mechanism to determine if the caller owns a specific contract by attempting to retrieve the contract's owner and comparing it to the caller's address. If the ownership retrieval fails, it assumes that the caller does not own the contract.
 
+# Events
+
+* Events are used in the `ReverseRegistrar.sol` contract to notify listeners of state changes. This can be useful for a variety of purposes, such as updating user interfaces or triggering other smart contracts. The `ReverseRegistrar` contract emits the following events:
+
+* `event Reverse`: 
+
+* `event DefaultResolverChanged`: 
+
 # CONCLUSION
