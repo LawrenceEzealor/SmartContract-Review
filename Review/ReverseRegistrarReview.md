@@ -36,15 +36,26 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 The modifiers that are being used by the `ReverseRegistrar.sol` functions are authorized
 
 ### - Functions
-* `Constructor`: 
-* `function setDefaultResolver`: 
-* `function clain`:
-* `function claimForAddr`:
-* `function claimWithResolver`:
-* `function setName`:
-* `function setNameForAddr`:
-* `function node`:
-* `function shaHexAddress`:
-* `function ownsContract`:
+* `abstract contract NameResolver`: is to establish a contract blueprint that outlines the required functionality for setting names for ENS nodes. Any contract that wishes to fulfill this role must inherit from `NameResolver` and provide an implementation for the `setName` function.
+
+* `Constructor`: the constructor initializes the contract's state variables and ensures that the contract is properly configured to interact with the ENS registry for reverse resolution of addresses.
+
+* `function setDefaultResolver`: the setDefaultResolver function allows the contract owner to specify the default resolver for handling reverse ENS records, ensuring proper resolution of addresses.
+
+* `function claim`: the claim function simplifies the process for a user to claim ownership of their reverse ENS record by automatically using the default resolver specified by the contract owner
+
+* `function claimForAddr`:  the `claimForAddr` function facilitates the process of claiming ownership of a reverse ENS record for a specific address and setting a resolver for the reverse node
+
+* `function claimWithResolver`: the claimWithResolver function provides a straightforward way for users to claim ownership of their reverse ENS record while also specifying a custom resolver for the reverse node if needed. This can be useful when users want to use a resolver other than the default resolver specified by the contract owner
+
+* `function setName`: the `setName` function simplifies the process for a user to set the name for their reverse ENS record by automatically using the default resolver specified by the contract owner and setting the caller's address as both the owner and resolver.
+
+* `function setNameForAddr`: the `setNameForAddr` function combines the process of claiming ownership of a reverse ENS record and setting its name, allowing for convenient management of reverse ENS records associated with specific addresses.
+
+* `function node`: the `node` function provides a convenient way to compute the ENS node hash for a given Ethereum address, facilitating operations related to reverse resolution of ENS records.
+
+* `function shaHexAddress`: the sha3HexAddress function efficiently calculates the SHA3 hash of the lower-case hexadecimal representation of an Ethereum address using inline assembly
+
+* `function ownsContract`: the `ownsContract` function provides a mechanism to determine if the caller owns a specific contract by attempting to retrieve the contract's owner and comparing it to the caller's address. If the ownership retrieval fails, it assumes that the caller does not own the contract.
 
 # CONCLUSION
