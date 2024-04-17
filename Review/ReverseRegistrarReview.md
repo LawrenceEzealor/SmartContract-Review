@@ -62,8 +62,8 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 
 * Events are used in the `ReverseRegistrar.sol` contract to notify listeners of state changes. This can be useful for a variety of purposes, such as updating user interfaces or triggering other smart contracts. The `ReverseRegistrar` contract emits the following events:
 
-* `event Reverse`: 
+* `event Reverse`: This event is typically emitted as a result of successful execution of functions like `claim` or `claimForAddr`, which are responsible for claiming ownership of reverse ENS records within the contrac
 
-* `event DefaultResolverChanged`: 
+* `event DefaultResolverChanged`: this event notifies external parties about changes in the default resolver, providing transparency regarding the resolver used for reverse ENS records within the contract.
 
 # CONCLUSION
