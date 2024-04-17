@@ -67,3 +67,5 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 * `event DefaultResolverChanged`: this event notifies external parties about changes in the default resolver, providing transparency regarding the resolver used for reverse ENS records within the contract.
 
 # CONCLUSION
+
+The `ReverseRegistrar` contract facilitates the management of reverse Ethereum Name Service (ENS) records. This allows users to claim ownership of reverse ENS records for their Ethereum addresses, set custom resolvers for reverse nodes, and assign names to reverse ENS records. THe key functions such as `claim`, `claimForAddr`, `setNameForAddr`, and `setDefaultResolver` enable users to interact with the contract efficiently. Events like `ReverseClaimed` and `DefaultResolverChanged` provide transparency by signaling changes in reverse ENS record ownership and default resolvers. Overall, the contract streamlines the process of managing and customizing reverse ENS records, enhancing the functionality and usability of the Ethereum Name Service ecosystem
