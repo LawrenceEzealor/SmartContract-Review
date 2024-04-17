@@ -65,6 +65,19 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 ```
 
 - `Constructor`: the constructor initializes the contract's state variables and ensures that the contract is properly configured to interact with the ENS registry for reverse resolution of addresses.
+```
+    constructor(ENS ensAddr) {
+        ens = ensAddr;
+
+        // Assign ownership of the reverse record to our deployer
+        ReverseRegistrar oldRegistrar = ReverseRegistrar(
+            ensAddr.owner(ADDR_REVERSE_NODE)
+        );
+        if (address(oldRegistrar) != address(0x0)) {
+            oldRegistrar.claim(msg.sender);
+        }
+    }
+```
 
 - `function setDefaultResolver`: the setDefaultResolver function allows the contract owner to specify the default resolver for handling reverse ENS records, ensuring proper resolution of addresses.
 
