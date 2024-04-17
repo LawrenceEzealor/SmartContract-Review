@@ -33,10 +33,18 @@ The `ReverseRegistrar.sol` has some import which are listed below as well as the
 #### Examples of how the imports are used
 
 ### - Modifiers
-The modifiers that are being used by the `ReverseRegistrar.sol` functions are:
-
-* authorized
+The modifiers that are being used by the `ReverseRegistrar.sol` functions are authorized
 
 ### - Functions
+* `Constructor`: 
+* `function setDefaultResolver`: 
+* `function clain`:
+* `function claimForAddr`:
+* `function claimWithResolver`:
+* `function setName`:
+* `function setNameForAddr`:
+* `function node`:
+* `function shaHexAddress`:
+* `function ownsContract`:
 
 # CONCLUSION
