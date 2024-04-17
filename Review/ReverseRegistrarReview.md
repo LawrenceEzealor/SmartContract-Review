@@ -80,7 +80,17 @@ The modifiers that are being used by the `ReverseRegistrar.sol` functions are au
 ```
 
 - `function setDefaultResolver`: the setDefaultResolver function allows the contract owner to specify the default resolver for handling reverse ENS records, ensuring proper resolution of addresses.
-
+```
+function setDefaultResolver(address resolver) public override onlyOwner {
+        require(
+            address(resolver) != address(0),
+            "ReverseRegistrar: Resolver address must not be 0"
+        );
+        defaultResolver = NameResolver(resolver);
+        emit DefaultResolverChanged(NameResolver(resolver));
+    }
+```
+    
 - `function claim`: the claim function simplifies the process for a user to claim ownership of their reverse ENS record by automatically using the default resolver specified by the contract owner
 
 - `function claimForAddr`: the `claimForAddr` function facilitates the process of claiming ownership of a reverse ENS record for a specific address and setting a resolver for the reverse node
