@@ -90,22 +90,110 @@ function setDefaultResolver(address resolver) public override onlyOwner {
         emit DefaultResolverChanged(NameResolver(resolver));
     }
 ```
-    
+
 - `function claim`: the claim function simplifies the process for a user to claim ownership of their reverse ENS record by automatically using the default resolver specified by the contract owner
+```
+    function claim(address owner) public override returns (bytes32) {
+        return claimForAddr(msg.sender, owner, address(defaultResolver));
+    }
+```    
 
 - `function claimForAddr`: the `claimForAddr` function facilitates the process of claiming ownership of a reverse ENS record for a specific address and setting a resolver for the reverse node
+```
+    function claimForAddr(
+        address addr,
+        address owner,
+        address resolver
+    ) public override authorised(addr) returns (bytes32) {
+        bytes32 labelHash = sha3HexAddress(addr);
+        bytes32 reverseNode = keccak256(
+            abi.encodePacked(ADDR_REVERSE_NODE, labelHash)
+        );
+        emit ReverseClaimed(addr, reverseNode);
+        ens.setSubnodeRecord(ADDR_REVERSE_NODE, labelHash, owner, resolver, 0);
+        return reverseNode;
+    }
+```    
 
 - `function claimWithResolver`: the claimWithResolver function provides a straightforward way for users to claim ownership of their reverse ENS record while also specifying a custom resolver for the reverse node if needed. This can be useful when users want to use a resolver other than the default resolver specified by the contract owner
+```
+    function claimWithResolver(
+        address owner,
+        address resolver
+    ) public override returns (bytes32) {
+        return claimForAddr(msg.sender, owner, resolver);
+    }
+```    
 
 - `function setName`: the `setName` function simplifies the process for a user to set the name for their reverse ENS record by automatically using the default resolver specified by the contract owner and setting the caller's address as both the owner and resolver.
+```
+    function setName(string memory name) public override returns (bytes32) {
+        return
+            setNameForAddr(
+                msg.sender,
+                msg.sender,
+                address(defaultResolver),
+                name
+            );
+    }
+```    
 
 - `function setNameForAddr`: the `setNameForAddr` function combines the process of claiming ownership of a reverse ENS record and setting its name, allowing for convenient management of reverse ENS records associated with specific addresses.
+```
+     function setNameForAddr(
+        address addr,
+        address owner,
+        address resolver,
+        string memory name
+    ) public override returns (bytes32) {
+        bytes32 node = claimForAddr(addr, owner, resolver);
+        NameResolver(resolver).setName(node, name);
+        return node;
+    }
+```    
 
 - `function node`: the `node` function provides a convenient way to compute the ENS node hash for a given Ethereum address, facilitating operations related to reverse resolution of ENS records.
+```
+    function node(address addr) public pure override returns (bytes32) {
+        return
+            keccak256(
+                abi.encodePacked(ADDR_REVERSE_NODE, sha3HexAddress(addr))
+            );
+    }
+```    
 
 - `function shaHexAddress`: the sha3HexAddress function efficiently calculates the SHA3 hash of the lower-case hexadecimal representation of an Ethereum address using inline assembly
+```
+    function sha3HexAddress(address addr) private pure returns (bytes32 ret) {
+        assembly {
+            for {
+                let i := 40
+            } gt(i, 0) {
+
+            } {
+                i := sub(i, 1)
+                mstore8(i, byte(and(addr, 0xf), lookup))
+                addr := div(addr, 0x10)
+                i := sub(i, 1)
+                mstore8(i, byte(and(addr, 0xf), lookup))
+                addr := div(addr, 0x10)
+            }
+
+            ret := keccak256(0, 40)
+        }
+    }
+```    
 
 - `function ownsContract`: the `ownsContract` function provides a mechanism to determine if the caller owns a specific contract by attempting to retrieve the contract's owner and comparing it to the caller's address. If the ownership retrieval fails, it assumes that the caller does not own the contract.
+```
+    function ownsContract(address addr) internal view returns (bool) {
+        try Ownable(addr).owner() returns (address owner) {
+            return owner == msg.sender;
+        } catch {
+            return false;
+        }
+    }
+```    
 
 # Events
 
